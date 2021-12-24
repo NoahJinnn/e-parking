@@ -1,0 +1,22 @@
+{   
+    "overview": {
+        "about": "About e-Parking",
+        "fast": "Fast",
+        "safe": "Safe",
+        "convenient": "Convenient" 
+    },
+    "works": {
+        "parking": "Parking",
+        "get": "Get car"
+    },
+    "roadmap": {
+        "start": "How it all Started"
+    },
+    "team": {
+        "founding": "Founding Members",
+        "mentors": "Mentors",
+        "partners": "Partners",
+        "more": "Read more",
+        "less": "Read less"
+    }
+}

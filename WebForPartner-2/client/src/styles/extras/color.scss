@@ -1,0 +1,149 @@
+.bg-gradient-prime {
+    background: $bg-gradient-1;
+}
+
+.app {
+    &__dark {
+        .bg-hard {
+            background-color: $color-dark-grey;
+        }
+        .bg-med {
+            background-color: $color-dark-grey-3;
+        }
+        .bg-light {
+            background-color: $color-dark-grey-5;
+        }
+        .bg-xlight {
+            background-color: $color-dark-grey-7;
+        }
+        .bg-purple-light {
+            background-color: $color-dark-grey-3;
+        }
+        .hard {
+            color: $color-white;
+        }
+        .bc-hard {
+            border-color: $color-white;
+        }
+        .bc-light {
+            border-color: $color-dark-grey-ff;
+        }
+        .light {
+            color: $color-dark-grey-ff;
+        }
+        .fill-hard {
+            fill: $color-white;
+        }
+        .fill-light {
+            fill: $color-dark-grey-ff;
+        }
+        .bc-prime {
+            border-color: $color-white;
+        }
+        .MuiFormLabel-root {
+            color: white !important;
+        }
+        .MuiInputBase-root {
+            background-color: $color-dark-grey-3;
+            color: white !important;
+        }
+        .MuiSvgIcon-root {
+            color: white;
+        }
+        .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: white !important;
+        }
+        .bg-hard-dark {
+            background-color: $color-dark-grey;
+        }
+        .bg-med-dark {
+            background-color: $color-dark-grey-3;
+        }
+        .bg-light-dark {
+            background-color: $color-dark-grey-5;
+        }
+        .bg-xlight-dark {
+            background-color: $color-dark-grey-7;
+        }
+        .hard-dark {
+            color: $color-white;
+        }
+        .light-dark {
+            color: $color-dark-grey-ff;
+        }
+        .fill-hard-dark {
+            fill: $color-white;
+        }
+        .fill-light-dark {
+            fill: $color-dark-grey-ff;
+        }
+        .bc-prime-dark {
+            border-color: $color-white;
+        }
+    }
+    &__light {
+        .bg-hard {
+            background-color: $color-white;
+        }
+        .bg-med {
+            background-color: $color-dark-grey-ff;
+        }
+        .bg-light {
+            background-color: $color-dark-grey-11;
+        }
+        .bg-xlight {
+            background-color: $color-dark-grey-9;
+        }
+        .bg-purple-light {
+            background-color: $color-light-purple;
+        }
+        .hard {
+            color: $color-dark-grey;
+        }
+        .light {
+            color: $color-dark-grey-5;
+        }
+        .bc-hard {
+            border-color: $color-dark-grey-11;
+        }
+        .bc-light {
+            border-color: $color-dark-grey-13;
+        }
+        .fill-hard {
+            fill: $color-dark-grey;
+        }
+        .fill-light {
+            fill: $color-dark-grey-5;
+        }
+        .bc-prime {
+            border-color: $color-prime;
+        }
+        .bg-hard-light {
+            background-color: $color-white;
+        }
+        .bg-med-light {
+            background-color: $color-dark-grey-ff;
+        }
+        .bg-light-light {
+            background-color: $color-dark-grey-11;
+        }
+        .bg-xlight-light {
+            background-color: $color-dark-grey-9;
+        }
+        .hard-light {
+            color: $color-dark-grey;
+        }
+        .light-light {
+            color: $color-dark-grey-5;
+        }
+        .fill-hard-light {
+            fill: $color-dark-grey;
+        }
+        .fill-light-light {
+            fill: $color-dark-grey-5;
+        }
+        .bc-prime-light {
+            border-color: $color-prime;
+        }
+    }
+}

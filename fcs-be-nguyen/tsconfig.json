@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "lib": ["es2017"],
+    "removeComments": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "target": "es2017",
+    "outDir": "lib",
+    "baseUrl": "./",
+    "paths": {
+      "@libs/*": ["../../libs/*", "./libs/*"],
+      "@types/*": ["../../types/*", "./types/*"],
+      "@const/*": ["../../const/*", "./const/*"],
+      "@config": ["../../config.ts", "./config.ts"]
+    },
+    "typeRoots": ["../../types", "../../node_modules/@types", "./types", "./node_modules/@types"]
+  },
+  "include": ["./**/*.ts", "../../types/*", "./types/*"],
+  "exclude": [
+    "node_modules",
+    "../../node_modules/*",
+    "../../.serverless/**/*",
+    "../../.webpack/**/*",
+    "../../_warmup/**/*",
+    "../../.vscode/**/*"
+  ]
+}

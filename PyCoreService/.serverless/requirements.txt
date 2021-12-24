@@ -1,0 +1,12 @@
+Flask-Cors==3.0.10
+Flask-RESTful==0.3.8
+Flask==1.1.2
+Werkzeug==1.0.1
+boto3==1.17.49
+botocore==1.20.49
+click==7.1.2
+dynamo_json==1.2.0
+flasgger==0.9.5
+pynamodb==5.0.3
+pyotp==2.6.0
+pytest==6.2.3

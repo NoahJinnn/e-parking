@@ -1,0 +1,65 @@
+service:
+  name: device-management-service
+
+plugins:
+  - serverless-bundle
+  - serverless-pseudo-parameters
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+
+custom: ${file(../../serverless.common.yml):custom}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 256
+  region: ap-southeast-1
+  stage: ${opt:stage, 'dev'}
+  iamRoleStatements:
+    - ${file(iam/DeviceIAM.yml):DeviceIAM}
+    - Effect: Allow
+      Action:
+        - secretsmanager:GetSecretValue
+      Resource: '*'
+
+  environment:
+    stage: ${self:custom.stage}
+    resourcesStage: ${self:custom.resourcesStage}
+    DEBUG_BUG_BUSINESS_STRING: ${self:custom.DEBUG_VARIABLE.DEBUG_BUG_BUSINESS_STRING}
+    DEBUG_SERVICE_NAME: device-management
+    DEBUG: ${self:custom.DEBUG_VARIABLE.DEBUG_BUG_BUSINESS_STRING}:*
+    DEVICE_TABLE_NAME: DeviceTable
+
+  apiGateway:
+    restApiId:
+      'Fn::ImportValue': ${self:provider.stage}-ExtApiGatewayRestApiId
+    restApiRootResourceId:
+      'Fn::ImportValue': ${self:provider.stage}-ExtApiGatewayRestApiRootResourceId
+
+functions:
+  sendGetDeviceIP:
+    handler: handlers/sendGetDeviceIP.handler
+    description: 'Expose API call to send GET_DEVICE_IP |path params: deviceId'
+    events:
+      - http:
+          path: ${self:custom.ApiRoot.DeviceManagement}/{deviceId}/send-get-device-ip
+          method: POST
+          cors: true
+          private: false
+
+  registerDevice:
+    handler: handlers/registerDevice.handlerMQTT
+    description: 'IoT Message Handler for IoTRule1'
+    events:
+
+resources:
+  Resources:
+    IotRule1:
+      Type: 'AWS::IoT::TopicRule'
+      Properties:
+        TopicRulePayload:
+          RuleDisabled: 'false'
+          Sql: Select balenaId as deviceId FROM 'dt/eparking/+/REGISTER'
+          Actions:
+            - Lambda:
+                FunctionArn: arn:aws:lambda:ap-southeast-1:064877420767:function:device-management-service-dev-registerDevice

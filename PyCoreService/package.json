@@ -1,0 +1,20 @@
+{
+  "name": "e-parking_core_service",
+  "version": "1.0.1",
+  "description": "Parking services written in Python",
+  "author": "e-PG Engineers",
+  "license": "MIT",
+  "dependencies": {
+    "serverless": "^2.37.2"
+  },
+  "devDependencies": {
+    "serverless-dynamodb-local": "^0.2.39",
+    "serverless-ignore": "^0.1.6",
+    "serverless-offline": "^6.9.0",
+    "serverless-python-requirements": "^5.1.1",
+    "serverless-wsgi": "^1.7.6"
+  },
+  "scripts": {
+    "deploy": "sls deploy"
+  }
+}

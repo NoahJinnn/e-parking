@@ -1,0 +1,51 @@
+{
+  "name": "serverless-stack-demo-ext-api",
+  "version": "1.0.0",
+  "description": "[Serverless Stack](https://serverless-stack.com) is a free comprehensive guide to creating full-stack serverless applications. We create a [note taking app](https://demo2.serverless-stack.com) from scratch.",
+  "main": "config.js",
+  "dependencies": {
+    "@middy/core": "^1.0.0",
+    "@middy/http-cors": "^1.0.0",
+    "@middy/http-error-handler": "^1.0.0",
+    "@middy/http-event-normalizer": "^1.0.0",
+    "@middy/http-json-body-parser": "^1.0.0",
+    "@middy/http-security-headers": "^1.4.0",
+    "@middy/secrets-manager": "^1.4.0",
+    "@middy/validator": "^1.0.0",
+    "aws-xray-sdk": "^2.3.6",
+    "http-errors": "^1.8.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.541.0",
+    "husky": "^4.2.5",
+    "jest": "^26.4.2",
+    "serverless-bundle": "^1.2.5",
+    "serverless-dotenv-plugin": "^2.4.2",
+    "serverless-offline": "^5.12.0",
+    "serverless-prune-plugin": "^1.4.3",
+    "serverless-pseudo-parameters": "^2.5.0",
+    "standard": "^14.3.4"
+  },
+  "scripts": {
+    "test": "standard --env jest && node_modules/.bin/serverless-bundle test",
+    "fix": "standard --fix --env jest",
+    "build": "standard --fix --env jest && sls deploy -v",
+    "clean": "sls remove -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fwang/serverless-stack-demo-ext-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  },
+  "homepage": ""
+}

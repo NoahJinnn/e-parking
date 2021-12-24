@@ -1,0 +1,10 @@
+DocumentIAM:
+  Effect: Allow
+  Action:
+    - dynamodb:Query
+    - dynamodb:Scan
+    - dynamodb:GetItem
+    - dynamodb:PutItem
+    - dynamodb:UpdateItem
+  Resource:
+    - 'Fn::ImportValue': ${self:provider.stage}-DocumentTableArn

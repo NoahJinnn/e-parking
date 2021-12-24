@@ -1,0 +1,10 @@
+MediaBucket:
+  Type: AWS::S3::Bucket
+  Properties:
+    BucketName: mediabucket-${self:provider.stage}
+    AccessControl: Private
+    CorsConfiguration:
+      CorsRules:
+        - AllowedHeaders: [‘*’]
+          AllowedMethods: [‘PUT’]
+          AllowedOrigins: [‘*’]

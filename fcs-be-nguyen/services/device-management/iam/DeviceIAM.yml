@@ -1,0 +1,16 @@
+DeviceIAM:
+  Effect: Allow
+  Action:
+    - dynamodb:PutItem
+    - dynamodb:Scan
+    - dynamodb:GetItem
+    - dynamodb:UpdateItem
+    - dynamodb:Query
+  Resource:
+    - 'Fn::ImportValue': ${self:provider.stage}-DeviceTableArn
+    - Fn::Join:
+        - '/'
+        -
+          - 'Fn::ImportValue': ${self:provider.stage}-DeviceTableArn
+          - 'index'
+          - '*'

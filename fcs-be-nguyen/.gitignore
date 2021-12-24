@@ -1,0 +1,12 @@
+node_modules
+.serverless
+secret.pem
+.env
+.env.development
+.webpack
+jwtRS256.key
+jwtRS2561.key.pub
+.idea/
+.DS_Store
+package-lock.json
+yarn.lock

@@ -1,0 +1,22 @@
+{   
+    "overview": {
+        "about": "Về e-Parking",
+        "fast": "Nhanh",
+        "safe": "An toàn",
+        "convenient": "Tiện lợi" 
+    },
+    "works": {
+        "parking": "Đỗ xe",
+        "get": "Lấy xe"
+    },
+    "roadmap": {
+        "start": "Khởi đầu Tất cả"
+    },
+    "team": {
+        "founding": "Sáng Lập",
+        "mentors": "Cố Vấn",
+        "partners": "Đối Tác",
+        "more": "Xem thêm",
+        "less": "Ẩn bớt"
+    }
+}

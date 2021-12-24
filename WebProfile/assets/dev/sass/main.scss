@@ -1,0 +1,27 @@
+// utils
+@import 'utils/reponsive';
+@import 'utils/color';
+
+// bases
+@import 'bases/index';
+
+// components
+@import 'components/button';
+@import 'components/carousel';
+@import 'components/dropdown';
+@import 'components/footer';
+@import 'components/header';
+@import 'components/img';
+@import 'components/splash';
+
+// fonts
+@import 'fonts/font-awesome/index';
+@import 'fonts/index';
+
+// layouts
+@import 'layouts/app';
+
+// pages
+@import 'pages/home';
+@import 'pages/page';
+@import 'pages/product';

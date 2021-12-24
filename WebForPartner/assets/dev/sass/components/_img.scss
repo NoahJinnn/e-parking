@@ -1,0 +1,12 @@
+.components {
+    &__img {
+        &-full {
+            transition: opacity .4s ease 0s;
+        }
+        &-thumb {
+            filter: blur(5px);
+            transition: visibility 0s ease .4s;
+            visibility: visible;
+        }
+    }
+}

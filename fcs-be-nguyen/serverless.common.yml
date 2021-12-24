@@ -1,0 +1,38 @@
+custom:
+  # Our stage is based on what is passed in when running serverless
+  # commands. Or fallsback to what we have set in the provider section.
+  stage: ${opt:stage, self:provider.stage}
+  bundle:
+    sourcemaps: true
+    linting: false
+    tsConfig: '../../tsconfig.json'
+    aliases:
+      - '@libs/*': ../../libs/*
+      - '@types/*': ../../types/*
+      - '@const/*': ../../const/*
+      - '@config': ../../config.ts
+    prune:
+      automatic: true
+      number: 3
+  resourcesStages:
+    prod: prod
+    dev: dev
+  resourcesStage: ${self:custom.resourcesStages.${self:custom.stage}, self:custom.resourcesStages.dev}
+  apiKeys:
+    - name: base64-key
+      value:
+        encrypted: ${env:API_KEY_VALUE}
+        kmsKeyRegion: ap-southeast-1
+  ApiRoot:
+    DeviceManagement: /device/management
+
+  DEBUG_VARIABLE:
+    DEBUG_BUG_BUSINESS_STRING: fcs
+
+
+lambdaPolicyXRay:
+  Effect: Allow
+  Action:
+    - xray:PutTraceSegments
+    - xray:PutTelemetryRecords
+  Resource: '*'

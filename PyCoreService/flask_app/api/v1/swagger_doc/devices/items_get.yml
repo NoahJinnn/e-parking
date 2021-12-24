@@ -1,0 +1,28 @@
+Get all Device
+---
+tags:
+  - "device"
+responses:
+  200:
+    description: "List all device response"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: "#/components/schemas/DeviceResponse"
+  404:
+    description: "Resource not found"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/NotfoundResponse"
+  500:
+    description: "System error"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ErrorResponse"

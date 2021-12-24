@@ -1,0 +1,12 @@
+UserSocialProfileTableIAM:
+  Effect: Allow
+  Action:
+    - dynamodb:PutItem
+    - dynamodb:Scan
+    - dynamodb:GetItem
+    - dynamodb:UpdateItem
+    - dynamodb:Query
+  Resource:
+    - 'Fn::ImportValue': ${self:provider.stage}-UserSocialProfileTableArn
+
+    # >>     - ${self:custom.AuctionsTable.arn}/index/statusAndEndDate

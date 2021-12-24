@@ -1,0 +1,26 @@
+@import "./const/color.scss";
+@import "./const/breakpoint.scss";
+@import "./extras/minw.scss";
+@import "./extras/blur.scss";
+@import "./extras/background.scss";
+@import "./extras/override.scss";
+@import "./extras/fill.scss";
+@import "./extras/toastify.scss";
+@import "./extras/nzindex.scss";
+@import "./extras/addon.scss";
+@import "./extras/color.scss";
+@import "./extras/maxw.scss";
+@import "./extras/justifyself.scss";
+@import "./extras/maxh.scss";
+@import "./extras/router.scss";
+
+body {
+    margin: 0;
+    font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}

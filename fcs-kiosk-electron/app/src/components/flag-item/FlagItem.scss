@@ -1,0 +1,32 @@
+.flagitem-modal__ripple {
+  padding: 0.5em;
+  cursor: pointer;
+  min-height: 3em;
+  border-bottom: solid 0.25px #bbb6;
+  border-radius: 5px;
+}
+
+.flagitem-modal__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 1rem;
+  height: 88px;
+
+  &:active .flagitem-tick {
+    transform: scale(0.1);
+  }
+}
+
+.flagitem-name {
+  margin-left: 1em;
+}
+
+.flagitem-tick {
+  margin-left: auto;
+  transition: transform 0.5s ease;
+}
+
+.flagitem-tick--hide {
+  display: none;
+}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { createStore, applyMiddleware } from 'redux';\nimport thunk from 'redux-thunk';\nimport reducer from '@redux/reducers';\n\nconst store = (initialState = {}) => {\n  return createStore(reducer, initialState, applyMiddleware(thunk));\n};\n\nexport default store;","map":null,"metadata":{},"sourceType":"module"}

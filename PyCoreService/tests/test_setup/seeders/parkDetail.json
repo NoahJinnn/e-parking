@@ -1,0 +1,19 @@
+ [
+    {
+      "available_cabin": 3,
+      "fee_per_hour_for_day": [
+        3000,
+        6000
+      ],
+      "image": "random link",
+      "address": "random",
+      "kyc": true,
+      "owner_id": "random",
+      "balena_cloud_uuid": "random",
+      "park_id": "1003656c-a4de-11eb-8b26-fd25ab6ce1b7",
+      "tel": "random",
+      "closed_time": "random",
+      "creation_date": "2021-04-24T16:18:42.328605+0000",
+      "fee_for_all_day": 5000
+    }
+  ]

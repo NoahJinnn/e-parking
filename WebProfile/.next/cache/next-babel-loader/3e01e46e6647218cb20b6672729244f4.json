@@ -1,0 +1,1 @@
+{"ast":null,"code":"import firebase from './firebase';\nexport { firebase };","map":{"version":3,"sources":["/home/nguyen/workspace/projects/eparking/WebProfile/plugins/index.ts"],"names":["firebase"],"mappings":"AAAA,OAAOA,QAAP,MAAqB,YAArB;AAEA,SAASA,QAAT","sourcesContent":["import firebase from './firebase';\n\nexport { firebase };\n"]},"metadata":{},"sourceType":"module"}

@@ -1,0 +1,8 @@
+.idea/*
+.vscode/*
+.vscode-server/*
+.git/*
+tests/*
+test_setup/*
+venv/*
+docs/*

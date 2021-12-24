@@ -1,0 +1,23 @@
+.info-card {
+  display: flex;
+  background-color: white;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  .finance-card {
+    border: 0.470593px solid #d2d2d2;
+    box-sizing: border-box;
+    border-radius: 9.41186px;
+    padding: 1rem;
+  }
+
+  .money-box-container {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+  }
+
+  .direction-circle {
+    bottom: 18%;
+    right: 25%;
+  }
+}

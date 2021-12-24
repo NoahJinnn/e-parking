@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { LOCALE } from '@redux/actions/type';\n\nconst localeReducer = (state = 'en', action) => {\n  switch (action.type) {\n    case LOCALE:\n      return action.data;\n\n    default:\n      return state;\n  }\n};\n\nexport default localeReducer;","map":null,"metadata":{},"sourceType":"module"}

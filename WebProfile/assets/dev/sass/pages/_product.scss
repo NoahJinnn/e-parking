@@ -1,0 +1,71 @@
+.pages {
+    &__product {
+        &_detail {
+            &-slider {
+                padding-left: unset !important;
+                @include responsive(max-lg) {
+                    padding-right: unset !important;
+                }
+                img, video {
+                    background-color: $color-black;
+                    object-fit: contain;
+                    width: 100%;
+                    height: 500px;
+                    cursor: pointer !important;
+                    @include responsive(lg) {
+                        height: 400px;
+                    }
+                    @include responsive(md) {
+                        height: 400px;
+                    }
+                    @include responsive(max-sm) {
+                        height: 300px;
+                    }
+                    @include responsive(max-xs) {
+                        height: 200px;
+                    }
+                }
+            }
+            &-content {
+                padding-right: unset !important;
+                @include responsive(max-lg) {
+                    padding-left: unset !important;
+                }
+                &_heading {
+                    text-transform: uppercase;
+                    @include responsive(max-lg) {
+                        margin-top: 1.5rem;
+                    }
+                }
+                &_desc {
+                    opacity: .6;
+                }
+            }
+            &-overlay {
+                min-height: 100vh;
+                top: 0;
+                left: 0;
+                position: fixed;
+                z-index: 1000;
+                background-color: $color-black;
+                &_closebtn {
+                    cursor: pointer;
+                    top: 0;
+                    right: 0;
+                    position: absolute;
+                    z-index: 1000;
+                    user-select: none;
+                    color: $color-light-cyan;
+                    &:hover {
+                        opacity: .8;
+                    }
+                }
+                img, video {
+                    width: 100%;
+                    height: 100vh !important;
+                    object-fit: contain !important;
+                }
+            }
+        }
+    }
+}

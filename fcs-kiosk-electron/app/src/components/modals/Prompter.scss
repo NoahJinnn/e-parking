@@ -1,0 +1,62 @@
+.prompt-text {
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+
+  &--alert {
+    font-size: 40px;
+    color: #f05757;
+  }
+
+  &--success {
+    font-size: 55px;
+    color: #4192ff;
+  }
+
+  &--warn {
+    font-size: 55px;
+    color: #fe9108;
+  }
+
+  &--info {
+    font-size: 55px;
+    color: #ff5a1d;
+  }
+
+  &--content {
+    font-size: 23px;
+    color: #393232;
+  }
+}
+
+.prompter-icon {
+  position: absolute;
+  bottom: 0%;
+  &--alert,
+  &--warn,
+  &--info {
+    right: 34%;
+  }
+  &--success {
+    right: 20%;
+  }
+}
+
+.prompter-info--icon {
+  width: 118px;
+  height: 118px;
+  padding-top: 15px;
+  border-radius: 50%;
+  background-image: linear-gradient(to bottom, #ff8456, #ff4500);
+  font-size: 72px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.26;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}

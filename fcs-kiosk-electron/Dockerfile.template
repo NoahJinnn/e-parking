@@ -1,0 +1,116 @@
+# BUILD STAGE
+FROM balenalib/%%BALENA_MACHINE_NAME%%-node:12.13-stretch-build as build
+
+WORKDIR /app
+
+SHELL ["/bin/bash", "-c"]
+
+ENV PATH /app/node_modules/.bin:$PATH
+ENV QT_X11_NO_MITSHM 1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  apt-utils \
+  build-essential \
+  clang \
+  xserver-xorg-core \
+  xserver-xorg-input-all \
+  xserver-xorg-video-fbdev \
+  xorg \
+  libxcb-image0 \
+  libxcb-util0 \
+  xdg-utils \
+  libdbus-1-dev \
+  libgtk2.0-dev \
+  libnotify-dev \
+  libgconf2-dev \
+  libasound2-dev \
+  libcap-dev \
+  libcups2-dev \
+  libxtst-dev \
+  libxss1 \
+  libnss3-dev \
+  libsmbclient \
+  libssh-4 \
+  fbset \
+  libexpat-dev \
+  libgtk2.0-0 \
+  libx11-xcb1 \
+  libxtst6 \
+  libgconf-2-4 \
+  libnss3 \
+  libasound2 \
+  libxcb-dri3-0 \
+  libatk-bridge2.0-0 \
+  libgtk-3-0 \
+  libdrm2 \
+  libgbm1 \
+  libxss1 \
+  libxcomposite1 \
+  libxcursor1 \
+  libxdamage1 \
+  libxi6 \
+  libatk1.0-0 \
+  libgl1-mesa-dri \
+  libcanberra-gtk-module \
+  libcanberra-gtk3-module \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY app/package.json .
+RUN yarn install && \
+  yarn add node-sass@4.12.0 && \
+  yarn add electron-rebuild && \
+  electron-rebuild
+
+ADD app .
+RUN yarn build-fe
+
+RUN electron-packager . --platform=$PLATFORM --arch=$ARCHITECT --out=packager --overwrite=true --prune=false
+
+# PROD STAGE
+FROM balenalib/%%BALENA_MACHINE_NAME%%-node:12.13-stretch-run
+
+WORKDIR /app
+
+# ELectron Chrome Bug
+ENV QT_X11_NO_MITSHM 1
+
+# Use OS Host. Balena Docs: https://www.balena.io/docs/learn/develop/runtime/
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+
+# Mount USB
+ENV UDEV on
+
+COPY --from=build /app/packager .
+COPY start.build.sh .
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  xserver-xorg-core \
+  xserver-xorg-input-all \
+  xserver-xorg-video-fbdev \
+  xorg \
+  libx11-xcb1 \
+  libxcb-dri3-0 \
+  libxcomposite1 \
+  libxcursor1 \
+  libxdamage1 \
+  libxi6 \
+  libxtst6 \
+  libnss3 \
+  libatk1.0-0 \
+  libatk-bridge2.0-0 \
+  libgtk-3-0 \
+  libdrm2 \
+  libgbm1 \
+  libxss1 \
+  libasound2 \
+  libgl1-mesa-dri \
+  libcanberra-gtk3-module \
+  && rm -rf /var/lib/apt/lists/*
+
+# Init Xserver
+RUN echo "#!/bin/bash" > /etc/X11/xinit/xserverrc \
+  && echo "" >> /etc/X11/xinit/xserverrc \
+  && echo 'exec /usr/bin/X -s 0 dpms -nocursor -nolisten tcp "$@"' >> /etc/X11/xinit/xserverrc
+
+# Start app
+CMD ["bash", "/app/start.build.sh"]

@@ -1,0 +1,15 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "jsRules": {},
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "no-console": false,
+    "prettier": true,
+    "interface-name": false,
+    "no-empty": { "options": ["allow-empty-catch"], "severity": "warning" }
+  },
+  "linterOptions": {
+    "exclude": ["node_modules", "webpack-config", "aws", "build"]
+  }
+}

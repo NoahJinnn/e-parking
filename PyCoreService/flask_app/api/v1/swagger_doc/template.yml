@@ -1,0 +1,309 @@
+openapi: "3.0.2"
+info:
+  title: "ePG APIs"
+  description: "ePG Global APIs version 1."
+  version: "1.0.0"
+
+components:
+  schemas:
+    # Device
+    Device:
+      type: object
+      properties:
+        park_id:
+          description: "Parking Id that this device belongs to"
+          type: string
+        balena_UUID:
+          description: "Balena Id of this Device"
+          type: string
+        case_UUID:
+          description: "Case Id of this Device"
+          type: string
+        created_at:
+          description: "2020-07-16T19:20:30.45+00:00"
+          type: string
+        custom_latitude:
+          description: "Custom latitude - Can be set by user"
+          type: string
+        custom_longitude:
+          description: "Custom longitude - Can be set by user"
+          type: string
+        device_name:
+          description: "Device name"
+          type: string
+        device_type:
+          description: "DPU/CPU etc"
+          type: string
+        ip_address:
+          description: "IP Address of this device in local network"
+          type: string
+        is_active:
+          description: "Is device active? Not online - a device is active or not based on producer"
+          type: boolean
+        is_online:
+          description: "Is device online now?"
+          type: boolean
+        latitude:
+          description: "latitude returned by device GPS module"
+          type: string
+        longitude:
+          description: "longitude returned by device GPS module"
+          type: string
+        mac_address:
+          description: "Device mac address"
+          type: string
+        master_device:
+          description: "IP of Broker that this device connect to - Usually the Master is also the broker"
+          type: string
+        note:
+          description: "Extra note"
+          type: string
+        public_ip_address:
+          description: "Device public IP address - If possible"
+          type: string
+        updatedAt:
+          description: "Timestamp where device last send its data to service"
+          type: string
+    DeviceResponse:
+      type: object
+      properties:
+        park_id:
+          description: ""
+          type: string
+        device_id:
+          description: ""
+          type: string
+        balena_UUID:
+          description: ""
+          type: string
+        case_UUID:
+          description: ""
+          type: string
+        created_at:
+          description: ""
+          type: string
+        custom_latitude:
+          description: ""
+          type: string
+        custom_longitude:
+          description: ""
+          type: string
+        device_name:
+          description: ""
+          type: string
+        device_type:
+          description: ""
+          type: string
+        ip_address:
+          description: ""
+          type: string
+        is_active:
+          description: ""
+          type: string
+        is_online:
+          description: ""
+          type: string
+        latitude:
+          description: ""
+          type: string
+        longitude:
+          description: ""
+          type: string
+        mac_address:
+          description: ""
+          type: string
+        master_device:
+          description: ""
+          type: string
+        note:
+          description: ""
+          type: string
+        public_ip_address:
+          description: ""
+          type: string
+        updatedAt:
+          description: ""
+          type: string
+
+    # Park
+    Park:
+      type: object
+      properties:
+        owner_id:
+          description: "Owner ID"
+          type: string
+        address:
+          description: "Park Address"
+          type: string
+        tel:
+          description: "Contact phone"
+          type: string
+        available_cabin:
+          description: "Number of available cabin"
+          type: number
+        balena_cloud_uuid:
+          description: "Balena ID of parking - I'm not so sure about this key"
+          type: string
+        closed_time:
+          description: "Time where this park will be closed"
+          type: string
+        country_code:
+          description: "VN USA etc"
+          type: string
+        cpu_temperature:
+          description: "Temperature of CPU that control this device"
+          type: number
+        creation_date:
+          description: "Created date"
+          type: string
+        dpu_temperature:
+          description: "Temperature of DPU that control this device. A parking can have multiple DPU so I think we will need some relationship here and move this property to Device"
+          type: number
+        fee_for_all_day:
+          description: "Fee per day"
+          type: number
+        fee_per_hour_for_day:
+          description: "Fee per hour per day"
+          type: number
+        geohash:
+          description: "Geo hash"
+          type: string
+        geoJson:
+          description: "Geo JSON"
+          type: string
+        name:
+          description: "Name of this park"
+          type: string
+        open_time:
+          description: "Time where this park will be opened daily"
+          type: string
+        public_url:
+          description: "URL that associated with this Parking - you can send command to the park using this id?"
+          type: string
+        service_available:
+          description: "Is this park available right now"
+          type: string
+        total_cabin:
+          description: "Number of total cabin in this parking"
+          type: number
+        image:
+          description: "Represent Image"
+          type: string
+        kyc:
+          description: "Does this included KYC yet"
+          type: boolean
+    ParkResponse:
+      type: object
+      properties:
+        park_id:
+          description: "Park ID"
+          type: string
+        owner_id:
+          description: "Owner ID"
+          type: string
+        address:
+          description: "Park Address"
+          type: string
+        tel:
+          description: "Contact phone"
+          type: string
+        available_cabin:
+          description: "Number of available cabin"
+          type: number
+        balena_cloud_uuid:
+          description: "Balena ID of parking - I'm not so sure about this key"
+          type: string
+        closed_time:
+          description: "Time where this park will be closed"
+          type: string
+        country_code:
+          description: "VN USA etc"
+          type: string
+        cpu_temperature:
+          description: "Temperature of CPU that control this device"
+          type: number
+        creation_date:
+          description: "Created date"
+          type: string
+        dpu_temperature:
+          description: "Temperature of DPU that control this device. A parking can have multiple DPU so I think we will need some relationship here and move this property to Device"
+          type: number
+        fee_for_all_day:
+          description: "Fee per day"
+          type: number
+        fee_per_hour_for_day:
+          description: "Fee per hour per day"
+          type: number
+        geohash:
+          description: "Geo hash"
+          type: string
+        geoJson:
+          description: "Geo JSON"
+          type: string
+        name:
+          description: "Name of this park"
+          type: string
+        open_time:
+          description: "Time where this park will be opened daily"
+          type: string
+        public_url:
+          description: "URL that associated with this Parking - you can send command to the park using this id?"
+          type: string
+        service_available:
+          description: "Is this park available right now"
+          type: string
+        total_cabin:
+          description: "Number of total cabin in this parking"
+          type: number
+        image:
+          description: "Represent Image"
+          type: string
+        kyc:
+          description: "Does this included KYC yet"
+          type: boolean
+
+    # Common Response
+    DeletedResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: "Delete a resource successfully"
+          example: "OK"
+
+    # Error Response
+    UnauthorizedResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: "User has insufficient permissions or authorization"
+          example: "Unauthorized"
+    NotfoundResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: "A simple description of not found request"
+          example: "Resource not found"
+    BadRequestResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: "A simple description of bad request"
+          example: "Validate error"
+    ConflictResourceResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: "Resource already exists"
+          example: "Resource A already exists in this resource"
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: "A simple description of what went wrong"
+          example: "An Exception encountered while processing your request"

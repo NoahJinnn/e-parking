@@ -1,0 +1,62 @@
+service:
+  name: document-service-api
+
+plugins:
+  - serverless-bundle
+  - serverless-pseudo-parameters
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+
+custom: ${file(../../serverless.common.yml):custom}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 256
+  region: ap-southeast-1
+  stage: ${opt:stage, 'dev'}
+  environment:
+    stage: ${self:custom.stage}
+    resourcesStage: ${self:custom.resourcesStage}
+  iamRoleStatements:
+    # - ${file(iam/DocumentIAM.yml):DocumentIAM}
+    - ${file(iam/S3DocumentIAM.yml):S3DocumentIAM}
+    - Effect: Allow
+      Action:
+        - secretsmanager:GetSecretValue
+      Resource: "*"
+
+  apiGateway:
+    restApiId:
+      "Fn::ImportValue": ${self:provider.stage}-ExtApiGatewayRestApiId
+    restApiRootResourceId:
+      "Fn::ImportValue": ${self:provider.stage}-ExtApiGatewayRestApiRootResourceId
+
+functions:
+  createDocument:
+    handler: handlers/createDocument.handler
+    events:
+      - http:
+          path: /document/{upload_type}
+          method: POST
+  getDocuments:
+    handler: handlers/getDocument.handler
+    events:
+      - http:
+          path: /document/get/{get_type}/{get_id}
+          method: GET
+  updateDocument:
+    handler: handlers/updateDocument.handler
+    events:
+      - http:
+          path: /document/update/{update_document_id}/{update_document_type}
+          method: PUT
+  s3ProcessUploadedFiles:
+    handler: handlers/uploadEvent.handler
+    events:
+      - s3:
+          bucket: core-service-ext-storage-serverlessdeploymentbuck-kkcyj0bqbv22
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploads/
+          existing: true

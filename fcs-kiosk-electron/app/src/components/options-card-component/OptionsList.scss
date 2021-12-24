@@ -1,0 +1,65 @@
+.options-card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+
+  .option-card {
+    position: relative;
+    margin-bottom: 2rem;
+    span {
+      color: #fafafa;
+    }
+    svg {
+      fill: #fafafa;
+      opacity: 1;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 1;
+      left: 1;
+      width: 0;
+      height: 0%;
+      transition: all 0.3s;
+      z-index: -1;
+      border-radius: 10px;
+    }
+    &:active {
+      background: unset;
+      transform: scale(0.9);
+
+      &:before {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &.facial-card {
+      box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.17);
+      background-image: linear-gradient(to bottom, #9df0ff, #0093ff);
+      margin-bottom: 5px;
+      .card-title {
+        width: 50%;
+      }
+    }
+    &.finger-print-card {
+      box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.17);
+      background-image: linear-gradient(to bottom, #ffa8da, #ff29ef);
+    }
+    &.passcode-card {
+      box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.17);
+      background-image: linear-gradient(to bottom, #ffd0bf, #ff7600);
+    }
+    &.bluetooth-card {
+      box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.17);
+      background-image: linear-gradient(to bottom, #dcb4ff, #560bff);
+    }
+    &.qr-card {
+      box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.17);
+      background-image: linear-gradient(to bottom, #8cf5e9, #22cb9d);
+    }
+  }
+}

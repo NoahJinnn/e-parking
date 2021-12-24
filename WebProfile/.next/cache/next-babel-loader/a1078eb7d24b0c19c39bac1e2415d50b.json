@@ -1,0 +1,1 @@
+{"ast":null,"code":"const nextI18nRoutes = require('next-i18n-routes');\n\nconst routes = nextI18nRoutes({\n  locales: ['en', 'vi'],\n  defaultLocale: 'en'\n});\nroutes.add('product/slug', '/product/:slug');\nroutes.add('page/slug', '/page/:slug');\nmodule.exports = routes;","map":null,"metadata":{},"sourceType":"script"}

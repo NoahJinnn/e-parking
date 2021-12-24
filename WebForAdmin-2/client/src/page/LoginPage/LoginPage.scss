@@ -1,0 +1,13 @@
+@import "src/styles/const/color.scss";
+.login {
+  &__background {
+    background: $bg-gradient-1;
+  }
+  .MuiOutlinedInput-input {
+    padding: 0 !important;
+  }
+
+  .MuiOutlinedInput-root {
+    padding: 18px 14px !important;
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "company": {
+        "code": "Business Code",
+        "hotline": "Hotline",
+        "address": "Address",
+        "addressline": "NSSC Building, Floor 8 - 1196 Street 3/2, Ward 8, District 11, Ho Chi Minh City, Viet Nam."
+    },
+    "contact": {
+        "info": "Contact Us For More Info",
+        "name": "Name",
+        "mail": "Your mail",
+        "message": "Message",
+        "send": "Send"
+    },
+    "copy": "Copyright",
+    "right": "All Rights Reserved"
+}

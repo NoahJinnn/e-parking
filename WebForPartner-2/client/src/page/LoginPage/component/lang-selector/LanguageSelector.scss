@@ -1,0 +1,82 @@
+@import "src/styles/const/color.scss";
+.app {
+  &__light {
+    .language__popup::before {
+      border-bottom-color: $color-prime;
+    }
+  }
+  &__dark {
+    .language__popup::before {
+      border-bottom-color: white;
+    }
+  }
+}
+.language {
+  &__tiny {
+    svg {
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  &__popup {
+    border-width: 1px;
+    &-top {
+      bottom: 110%;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: rotate(180deg) translateX(50%);
+        bottom: -20px;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+      }
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: rotate(180deg) translateX(50%);
+        bottom: -18px;
+        width: 0;
+        height: 0;
+        border: 9px solid transparent;
+        border-bottom-color: white;
+      }
+    }
+    &-bottom {
+      top: 110%;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 100%;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+      }
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 100%;
+        width: 0;
+        height: 0;
+        border: 9px solid transparent;
+        border-bottom-color: white;
+      }
+    }
+  }
+  &__selector {
+    &-top {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
