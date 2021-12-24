@@ -1,0 +1,31 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "ParkingSession" (
+	"databaseIndex"	INTEGER UNIQUE,
+	"id"	TEXT NOT NULL UNIQUE,
+	"carType"	INTEGER,
+	"carColor"	TEXT,
+	"carLong"	INTEGER,
+	"carWidth"	INTEGER,
+	"carHeight"	INTEGER,
+	"licensePlate"	TEXT NOT NULL UNIQUE,
+	"phone"	TEXT,
+	"phoneCode"	TEXT,
+	"faceId"	TEXT,
+	"fingerprintId"	TEXT,
+	"parkingAvatar"	TEXT NOT NULL DEFAULT "testing",
+	"checkInDate"	NUMERIC,
+	"checkOutDate"	NUMERIC,
+	"parkingFee"	INTEGER,
+	"currencyType"	INTEGER,
+	"checkInMode"	INTEGER,
+	"checkOutMode"	INTEGER,
+	"paymentMode"	INTEGER,
+	"status"	INTEGER,
+	"isDeposited"	NUMERIC,
+	"creationDate"	NUMERIC DEFAULT (STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW', 'localtime')),
+	"updatedOn"	NUMERIC DEFAULT (STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW', 'localtime')),
+	"deletionDate"	NUMERIC,
+	UNIQUE("databaseIndex"),
+	PRIMARY KEY("id ")
+);
+COMMIT;
