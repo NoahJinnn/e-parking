@@ -1,0 +1,21 @@
+@import "./const/color.scss";
+
+.page-bg {
+  background-color: $color-dark-grey-ff;
+}
+
+@mixin img-rule {
+  border-radius: 1rem;
+  width: var(--img-width);
+  height: calc(var(--img-width) * 3 / 4);
+}
+
+.card-img {
+  --img-width: 10rem;
+  @include img-rule;
+}
+
+.card-info-img {
+  --img-width: 30rem;
+  @include img-rule;
+}

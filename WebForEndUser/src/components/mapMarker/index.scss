@@ -1,0 +1,17 @@
+@import "@styles/const/color.scss";
+.map {
+    &__marker {
+        &-available {
+            -webkit-filter: drop-shadow(0px 0px 8px $color-prime);
+            filter: drop-shadow(0px 0px 8px $color-prime);
+        }
+        &-nearfull {
+            -webkit-filter: drop-shadow(0px 0px 8px $color-orange);
+            filter: drop-shadow(0px 0px 8px $color-orange);
+        }
+        &-unavailable {
+            -webkit-filter: drop-shadow(0px 0px 8px $color-gray);
+            filter: drop-shadow(0px 0px 8px $color-gray);
+        }
+    }
+}

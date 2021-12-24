@@ -1,0 +1,197 @@
+/*
+
+   MIN HEIGHT
+
+   Base:
+     mih = min-height
+
+   Modifiers
+     1 = 1st step in width scale
+     2 = 2nd step in width scale
+     3 = 3rd step in width scale
+     4 = 4th step in width scale
+     5 = 5th step in width scale
+     6 = 6st step in width scale
+     7 = 7nd step in width scale
+     8 = 8rd step in width scale
+     9 = 9th step in width scale
+
+     -100 = literal value 100%
+
+     -none  = string value none
+
+
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+
+*/
+
+/* Max Width Percentages */
+
+.mih-100 {
+    min-height: 100%;
+}
+
+/* Max Width Scale */
+
+.mih1 {
+    min-height: 1rem;
+}
+.mih2 {
+    min-height: 2rem;
+}
+.mih3 {
+    min-height: 4rem;
+}
+.mih4 {
+    min-height: 8rem;
+}
+.mih5 {
+    min-height: 16rem;
+}
+.mih5-ex {
+    min-height: 17rem;
+}
+.mih6 {
+    min-height: 32rem;
+}
+.mih7 {
+    min-height: 48rem;
+}
+.mih8 {
+    min-height: 64rem;
+}
+.mih9 {
+    min-height: 96rem;
+}
+
+/* Max Width String Properties */
+
+.mih-none {
+    min-height: none;
+}
+
+@include breakpoint(ns) {
+    .mih-100-ns {
+        min-height: 100%;
+    }
+
+    .mih1-ns {
+        min-height: 1rem;
+    }
+    .mih2-ns {
+        min-height: 2rem;
+    }
+    .mih3-ns {
+        min-height: 4rem;
+    }
+    .mih4-ns {
+        min-height: 8rem;
+    }
+    .mih5-ns {
+        min-height: 16rem;
+    }
+    .mih5-ex-ns {
+        min-height: 24rem;
+    }
+    .mih6-ns {
+        min-height: 32rem;
+    }
+    .mih7-ns {
+        min-height: 48rem;
+    }
+    .mih8-ns {
+        min-height: 64rem;
+    }
+    .mih9-ns {
+        min-height: 96rem;
+    }
+
+    .mih-none-ns {
+        min-height: none;
+    }
+}
+
+@include breakpoint(m) {
+    .mih-100-m {
+        min-height: 100%;
+    }
+
+    .mih1-m {
+        min-height: 1rem;
+    }
+    .mih2-m {
+        min-height: 2rem;
+    }
+    .mih3-m {
+        min-height: 4rem;
+    }
+    .mih4-m {
+        min-height: 8rem;
+    }
+    .mih5-m {
+        min-height: 16rem;
+    }
+    .mih5-ex-m {
+        min-height: 24rem;
+    }
+    .mih6-m {
+        min-height: 32rem;
+    }
+    .mih7-m {
+        min-height: 48rem;
+    }
+    .mih8-m {
+        min-height: 64rem;
+    }
+    .mih9-m {
+        min-height: 96rem;
+    }
+
+    .mih-none-m {
+        min-height: none;
+    }
+}
+
+@include breakpoint(l) {
+    .mih-100-l {
+        min-height: 100%;
+    }
+
+    .mih1-l {
+        min-height: 1rem;
+    }
+    .mih2-l {
+        min-height: 2rem;
+    }
+    .mih3-l {
+        min-height: 4rem;
+    }
+    .mih4-l {
+        min-height: 8rem;
+    }
+    .mih5-l {
+        min-height: 16rem;
+    }
+    .mih5-ex-l {
+        min-height: 24rem;
+    }
+    .mih6-l {
+        min-height: 32rem;
+    }
+    .mih7-l {
+        min-height: 48rem;
+    }
+    .mih8-l {
+        min-height: 64rem;
+    }
+    .mih9-l {
+        min-height: 96rem;
+    }
+
+    .mih-none-l {
+        min-height: none;
+    }
+}

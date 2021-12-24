@@ -1,0 +1,162 @@
+/*
+
+   MAX HeightS PIXEL
+
+   Base:
+     mxh = max-height
+
+   Modifiers
+     1 = 1st step in Height scale
+     2 = 2nd step in Height scale
+     3 = 3rd step in Height scale
+     4 = 4th step in Height scale
+     5 = 5th step in Height scale
+     6 = 6st step in Height scale
+     7 = 7nd step in Height scale
+     8 = 8rd step in Height scale
+     9 = 9th step in Height scale
+
+     -none  = string value none
+
+
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+
+*/
+
+/* Max Height Scale */
+
+.mxh1 {
+    max-height: 10%;
+}
+.mxh2 {
+    max-height: 20%;
+}
+.mxh3 {
+    max-height: 30%;
+}
+.mxh4 {
+    max-height: 40%;
+}
+.mxh5 {
+    max-height: 50%;
+}
+.mxh6 {
+    max-height: 60%;
+}
+.mxh7 {
+    max-height: 70%;
+}
+.mxh8 {
+    max-height: 80%;
+}
+.mxh9 {
+    max-height: 90%;
+}
+
+/* Max Height String Properties */
+
+.mxh-none {
+    max-height: none;
+}
+
+@include breakpoint(ns) {
+    .mxh-ns {
+        max-height: 10%;
+    }
+    .mxh2-ns {
+        max-height: 20%;
+    }
+    .mxh3-ns {
+        max-height: 30%;
+    }
+    .mxh4-ns {
+        max-height: 40%;
+    }
+    .mxh5-ns {
+        max-height: 50%;
+    }
+    .mxh6-ns {
+        max-height: 60%;
+    }
+    .mxh7-ns {
+        max-height: 70%;
+    }
+    .mxh8-ns {
+        max-height: 80%;
+    }
+    .mxh9-ns {
+        max-height: 90%;
+    }
+    .mxh-none-ns {
+        max-height: none;
+    }
+}
+
+@include breakpoint(m) {
+    .mxh1-m {
+        max-height: 10%;
+    }
+    .mxh2-m {
+        max-height: 20%;
+    }
+    .mxh3-m {
+        max-height: 30%;
+    }
+    .mxh4-m {
+        max-height: 40%;
+    }
+    .mxh5-m {
+        max-height: 50%;
+    }
+    .mxh6-m {
+        max-height: 60%;
+    }
+    .mxh7-m {
+        max-height: 70%;
+    }
+    .mxh8-m {
+        max-height: 80%;
+    }
+    .mxh9-m {
+        max-height: 90%;
+    }
+    .mxh-none-m {
+        max-height: none;
+    }
+}
+
+@include breakpoint(l) {
+    .mxh1-l {
+        max-height: 10%;
+    }
+    .mxh2-l {
+        max-height: 20%;
+    }
+    .mxh3-l {
+        max-height: 30%;
+    }
+    .mxh4-l {
+        max-height: 40%;
+    }
+    .mxh5-l {
+        max-height: 50%;
+    }
+    .mxh6-l {
+        max-height: 60%;
+    }
+    .mxh7-l {
+        max-height: 70%;
+    }
+    .mxh8-l {
+        max-height: 80%;
+    }
+    .mxh9-l {
+        max-height: 90%;
+    }
+    .mxh-none-l {
+        max-height: none;
+    }
+}

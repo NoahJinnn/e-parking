@@ -1,0 +1,43 @@
+.components {
+    &__button {
+        position: relative;
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        overflow: hidden;
+        &:not(:disabled):not(.disabled) {
+            cursor: pointer;
+        }
+        &-ripple {
+            position: absolute;
+            background: $color-white;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border-radius: 50%;
+            animation: ripple-animate 1s ease-in-out;
+        }
+    }
+}
+@keyframes ripple-animate {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+    }
+    100% {
+        width: 600px;
+        height: 600px;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,237 @@
+/*
+
+   Set both width and height for square
+
+   Base:
+     wh = width-height
+
+   Modifiers
+     1 = 1st step in width scale
+     2 = 2nd step in width scale
+     3 = 3rd step in width scale
+     4 = 4th step in width scale
+     5 = 5th step in width scale
+     6 = 6st step in width scale
+     7 = 7nd step in width scale
+     8 = 8rd step in width scale
+     9 = 9th step in width scale
+
+     -100 = literal value 100%
+
+     -none  = string value none
+
+
+   Media Query Extensions:
+     -ns = not-small
+     -m  = medium
+     -l  = large
+
+*/
+
+/* Max Width Percentages */
+
+.wh-100 {
+    width: 100%;
+}
+
+/* Max Width Scale */
+
+.wh1 {
+    width: 1rem;
+    height: 1rem;
+}
+.wh2 {
+    width: 2rem;
+    height: 2rem;
+}
+.wh3 {
+    width: 4rem;
+    height: 4rem;
+}
+.wh4 {
+    width: 8rem;
+    height: 8rem;
+}
+.wh5 {
+    width: 16rem;
+    height: 16rem;
+}
+.wh6 {
+    width: 32rem;
+    height: 32rem;
+}
+.wh7 {
+    width: 48rem;
+    height: 48rem;
+}
+.wh8 {
+    width: 64rem;
+    height: 64rem;
+}
+.wh9 {
+    width: 96rem;
+    height: 96rem;
+}
+
+/* Max Width String Properties */
+
+.wh-none {
+    width: none;
+    height: none;
+}
+
+@include breakpoint(ns) {
+    .wh-100-ns {
+        width: 100%;
+    }
+
+    /* Max Width Scale */
+
+    .wh1-ns {
+        width: 1rem;
+        height: 1rem;
+    }
+    .wh2-ns {
+        width: 2rem;
+        height: 2rem;
+    }
+    .wh3-ns {
+        width: 4rem;
+        height: 4rem;
+    }
+    .wh4-ns {
+        width: 8rem;
+        height: 8rem;
+    }
+    .wh5-ns {
+        width: 16rem;
+        height: 16rem;
+    }
+    .wh6-ns {
+        width: 32rem;
+        height: 32rem;
+    }
+    .wh7-ns {
+        width: 48rem;
+        height: 48rem;
+    }
+    .wh8-ns {
+        width: 64rem;
+        height: 64rem;
+    }
+    .wh9-ns {
+        width: 96rem;
+        height: 96rem;
+    }
+
+    /* Max Width String Properties */
+
+    .wh-none-ns {
+        width: none;
+        height: none;
+    }
+}
+
+@include breakpoint(m) {
+    .wh-100-m {
+        width: 100%;
+    }
+
+    /* Max Width Scale */
+
+    .wh1-m {
+        width: 1rem;
+        height: 1rem;
+    }
+    .wh2-m {
+        width: 2rem;
+        height: 2rem;
+    }
+    .wh3-m {
+        width: 4rem;
+        height: 4rem;
+    }
+    .wh4-m {
+        width: 8rem;
+        height: 8rem;
+    }
+    .wh5-m {
+        width: 16rem;
+        height: 16rem;
+    }
+    .wh6-m {
+        width: 32rem;
+        height: 32rem;
+    }
+    .wh7-m {
+        width: 48rem;
+        height: 48rem;
+    }
+    .wh8-m {
+        width: 64rem;
+        height: 64rem;
+    }
+    .wh9-m {
+        width: 96rem;
+        height: 96rem;
+    }
+
+    /* Max Width String Properties */
+
+    .wh-none-m {
+        width: none;
+        height: none;
+    }
+}
+
+@include breakpoint(l) {
+    .wh-100-l {
+        width: 100%;
+    }
+
+    /* Max Width Scale */
+
+    .wh1-l {
+        width: 1rem;
+        height: 1rem;
+    }
+    .wh2-l {
+        width: 2rem;
+        height: 2rem;
+    }
+    .wh3-l {
+        width: 4rem;
+        height: 4rem;
+    }
+    .wh4-l {
+        width: 8rem;
+        height: 8rem;
+    }
+    .wh5-l {
+        width: 16rem;
+        height: 16rem;
+    }
+    .wh6-l {
+        width: 32rem;
+        height: 32rem;
+    }
+    .wh7-l {
+        width: 48rem;
+        height: 48rem;
+    }
+    .wh8-l {
+        width: 64rem;
+        height: 64rem;
+    }
+    .wh9-l {
+        width: 96rem;
+        height: 96rem;
+    }
+
+    /* Max Width String Properties */
+
+    .wh-none-l {
+        width: none;
+        height: none;
+    }
+}

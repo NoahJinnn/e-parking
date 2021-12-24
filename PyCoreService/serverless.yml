@@ -1,0 +1,205 @@
+service: eparking-demo
+
+frameworkVersion: ">=2.0 <=2.50.0"
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+  - serverless-dynamodb-local
+  - serverless-offline
+package:
+  exclude:
+    - node_modules/**
+    - .idea/**
+    - .requirements/**
+    - env/**
+    - README.md
+    - package.json
+    - package-lock.json
+    - requirements.txt
+
+
+custom:
+  wsgi:
+    app: flask_app.app
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: 8000
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      migrate: true
+
+#  pythonRequirements:
+#    layer:
+#      name: ${self:provider.stage}-e-parking-layer
+#      description: Python requirements lambda layer
+#      compatibleRuntimes:
+#        - python3.8
+#      licenseInfo: GPLv3
+#      allowedAccounts:
+#        - '*'
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: ap-southeast-1
+  stage: dev
+  environment:
+    REGION: ${self:provider.region}
+    OTP_EXPIRED_LIMIT: 5 #in minuted
+    OTP_SECRECT: eparking #accept only string
+    USER_TABLE: ${self:service}-user-${opt:stage, self:provider.stage}
+    PARKING_SESSION_TABLE: ${self:service}-parking-session-${opt:stage, self:provider.stage}
+    PARKING_INFO_TABLE: ${self:service}-parking-info-${opt:stage, self:provider.stage}
+    PARKING_INFO_TABLE_INDEX: park-index
+    PARKING_DEVICE_TABLE: ${self:service}-parking-device-${opt:stage, self:provider.stage}
+    SNS_TOPIC: ${self:service}-parking-sns-${opt:stage, self:provider.stage}
+    SNS_TOPIC_ARN: { "Fn::Join" : ["", ["arn:aws:sns:${self:provider.region}:", { "Ref" : "AWS::AccountId" }, ":${self:provider.environment.SNS_TOPIC}" ] ]  }
+    
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:DescribeTable
+      Resource: 
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.USER_TABLE}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.PARKING_SESSION_TABLE}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.PARKING_INFO_TABLE}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.PARKING_INFO_TABLE}/index/${self:provider.environment.PARKING_INFO_TABLE_INDEX}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.PARKING_DEVICE_TABLE}"
+    - Effect: Allow
+      Action:
+        - SNS:Publish
+      Resource: 
+        - { "Fn::Join" : ["", ["arn:aws:sns:${self:provider.region}:", { "Ref" : "AWS::AccountId" }, ":${self:provider.environment.SNS_TOPIC}" ] ]  }
+        - 'arn:aws:sns:us-east-1:064877420767:eparking_sns'
+        - '*'
+    - Effect: Allow
+      Action:
+        - mobiletargeting:SendMessages
+      Resource:
+        - '*'
+
+
+functions:
+  api:
+    handler: wsgi_handler.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+      - http:
+          path: /{proxy+}
+          method: ANY
+
+resources:
+  Resources:
+    usersDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.USER_TABLE}
+
+    parkingSessionTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: park_id
+            AttributeType: S
+          -
+            AttributeName: parking_session_id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: park_id
+            KeyType: HASH
+          -
+            AttributeName: parking_session_id
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.PARKING_SESSION_TABLE}
+
+    parkingDeviceTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: park_id
+            AttributeType: S
+          -
+            AttributeName: device_id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: park_id
+            KeyType: HASH
+          -
+            AttributeName: device_id
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.PARKING_DEVICE_TABLE}
+
+    parkInfo:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: ${self:provider.environment.PARKING_INFO_TABLE}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: owner_id
+            AttributeType: S
+          - AttributeName: park_id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: owner_id
+            KeyType: HASH
+          - AttributeName: park_id
+            KeyType: RANGE
+        GlobalSecondaryIndexes:
+          - IndexName: ${self:provider.environment.PARKING_INFO_TABLE_INDEX}
+            KeySchema:
+              - AttributeName: park_id
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+
+    pagesSNSTopic:
+      Type: AWS::SNS::Topic
+      Properties: 
+        DisplayName: ${self:provider.environment.SNS_TOPIC}
+        TopicName: ${self:provider.environment.SNS_TOPIC}
+
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
+    IotRuleDeviceRegister:
+      Type: 'AWS::IoT::TopicRule'
+      Properties:
+        RuleName: 'DeviceRegister'
+        TopicRulePayload:
+          Actions:
+            - Lambda:
+                FunctionArn: arn:aws:lambda:ap-southeast-1:064877420767:function:device-management-service-dev-registerDevice
+          Description: 'Bind topic with lambda function'
+          RuleDisabled: false
+          Sql: Select data.balenaId as deviceId FROM 'cmd/aws/device-management/REGISTER'

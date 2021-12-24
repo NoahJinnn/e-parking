@@ -1,0 +1,22 @@
+#main-circle {
+	position: absolute;
+	top: -70%;
+	left: -20%;
+	width: 140%;
+	height: 90vh;
+}
+
+.dialog-place {
+	right: 0;
+	width: 100%;
+}
+
+@include breakpoint(ns) {
+	.dialog-place {
+		right: 96px;
+		width: max-content;
+	}
+	#main-circle {
+		height: 100vh;
+	}
+}

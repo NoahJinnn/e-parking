@@ -1,0 +1,4 @@
+{
+    "error-with-status": "Lỗi {{ statusCode }} xảy ra trong quá trình xử lý",
+    "error-without-status": "Có lỗi trong quá trình xử lý"
+}

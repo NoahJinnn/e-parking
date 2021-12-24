@@ -1,0 +1,90 @@
+version: "3"
+services:
+  s3:
+    image: minio/minio:RELEASE.2020-07-27T18-37-02Z
+    container_name: fcs-core-service-s3
+    ports:
+      - 9000:9000
+    volumes:
+      - fcs-s3:/data
+    environment:
+      - MINIO_ACCESS_KEY=${AWS_ACCESS_KEY}
+      - MINIO_SECRET_KEY=${AWS_SECRET_KEY}
+    command: [ "server", "/data" ]
+    networks:
+      - fcs-local-network
+    tty: true
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+
+  dynamodb:
+    image: amazon/dynamodb-local:1.13.5
+    container_name: fcs-core-service-dynamodb
+    user: root
+    ports:
+      - 8000:8000
+    volumes:
+      - fcs-dynamo:/home/data
+    environment:
+      - ./Djava.library.path=./DynamoDBLocal_lib
+    command: [ "-jar", "DynamoDBLocal.jar", "-sharedDb", "-dbPath", "/home/data" ]
+    networks:
+      - fcs-local-network
+    tty: true
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+
+  dynamodb-admin:
+    build:
+      context: .
+      dockerfile: dynamodb-admin.Dockerfile
+    container_name: fcs-core-service-dynamodb-admin
+    ports:
+      - 8001:8001
+    networks:
+      - fcs-local-network
+    tty: true
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+
+  api:
+    build:
+      context: .
+      dockerfile: Develop.Dockerfile
+      args:
+        - STAGE=local_docker
+    environment:
+      - AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
+      - AWS_SECRET_KEY=${AWS_SECRET_KEY}
+    container_name: fcs-core-service-api
+    volumes:
+      - ${PWD}/.vscode-server:/root/.vscode-server # Speed up vscode server install in container after 1st time
+    ports:
+      - 3001:3001
+    networks:
+      - fcs-local-network
+    tty: true
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+
+volumes:
+  fcs-s3:
+    driver: local
+  fcs-dynamo:
+    driver: local
+
+networks:
+  fcs-local-network:
+    driver: bridge

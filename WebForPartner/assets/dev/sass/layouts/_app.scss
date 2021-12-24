@@ -1,0 +1,20 @@
+.layouts {
+    &__app {
+        overflow: hidden;
+        width: 100%;
+        min-height: 100vh;
+        &-body {
+            padding: 100px 0 70px 0;
+            min-height: calc(80vh - 70px);
+            @include responsive(lg) {
+                min-height: 100vh;
+            }
+            @include responsive(md) {
+                min-height: 100vh;
+            }
+            @include responsive(max-sm) {
+                min-height: 80vh;
+            }
+        }
+    }
+}

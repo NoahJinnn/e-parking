@@ -1,0 +1,45 @@
+Create a Device
+---
+tags:
+  - "device"
+requestBody:
+  content:
+    application/json:
+      schema:
+        $ref: "#/components/schemas/Device"
+        description: ""
+        required: true
+responses:
+  200:
+    description: "Device response json"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              $ref: "#/components/schemas/DeviceResponse"
+  400:
+    description: "Bad request"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/BadRequestResponse"
+  404:
+    description: "Resource not found"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/NotfoundResponse"
+  409:
+    description: "Bad request"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ConflictResourceResponse"
+  500:
+    description: "System error"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ErrorResponse"

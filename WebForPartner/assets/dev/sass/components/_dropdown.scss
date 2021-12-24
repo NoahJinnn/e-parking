@@ -1,0 +1,33 @@
+.components {
+    &__dropdown {
+        position: relative;
+        &-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            float: left;
+            min-width: 10rem;
+            padding: .5rem 0;
+            font-size: 1rem;
+            color: $color-black;
+            text-align: left;
+            list-style: none;
+            background-color: $color-white;
+            background-clip: padding-box;
+            border-radius: .25rem;
+        }
+        &-item {
+            display: block;
+            width: 100%;
+            padding: .5rem 1.5rem;
+            clear: both;
+            font-weight: 400;
+            color: $color-black;
+            text-align: inherit;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+Get a Park by Id
+---
+tags:
+  - "park"
+parameters:
+  - name: "park_id"
+    in: path
+    type: string
+    schema:
+      type: string
+    required: true
+    example: "parking_id_123"
+responses:
+  200:
+    description: ""
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              $ref: "#/components/schemas/ParkResponse"
+  404:
+    description: "Resource not found"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/NotfoundResponse"
+  500:
+    description: "System error"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ErrorResponse"

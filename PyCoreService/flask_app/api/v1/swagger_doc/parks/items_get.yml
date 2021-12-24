@@ -1,0 +1,28 @@
+Get all Park
+---
+tags:
+  - "park"
+responses:
+  200:
+    description: "List all Parks response"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: "#/components/schemas/ParkResponse"
+  404:
+    description: "Resource not found"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/NotfoundResponse"
+  500:
+    description: "System error"
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ErrorResponse"
