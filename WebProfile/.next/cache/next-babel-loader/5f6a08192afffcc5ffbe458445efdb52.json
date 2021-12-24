@@ -1,0 +1,1 @@
+{"ast":null,"code":"var i18n = require('next-i18next')[\"default\"];\n\nmodule.exports = new i18n({\n  defaultNS: 'common',\n  serverLanguageDetection: false,\n  browserLanguageDetection: false,\n  defaultLanguage: 'en',\n  fallbackLng: 'en',\n  otherLanguages: ['vi'],\n  localeSubpaths: {\n    en: 'en',\n    vi: 'vi'\n  }\n});","map":null,"metadata":{},"sourceType":"script"}

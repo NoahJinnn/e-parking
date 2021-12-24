@@ -1,0 +1,55 @@
+service:
+  name: parking-session-service
+
+plugins:
+  - serverless-bundle
+  - serverless-pseudo-parameters
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+
+custom: ${file(../../serverless.common.yml):custom}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 256
+  region: ap-southeast-1
+  stage: ${opt:stage, 'dev'}
+  iamRoleStatements:
+    - ${file(iam/ParkingSessionIAM.yml):ParkingSessionIAM}
+    - Effect: Allow
+      Action:
+        - secretsmanager:GetSecretValue
+      Resource: "*"
+
+  environment:
+    stage: ${self:custom.stage}
+    resourcesStage: ${self:custom.resourcesStage}
+    PARKING_SESSION_TABLE_NAME: ParkingSessionTable
+    DEBUG: ${self:custom.DEBUG_VARIABLE.DEBUG_BUG_BUSINESS_STRING}:*
+    DEBUG_BUG_BUSINESS_STRING: ${self:custom.DEBUG_VARIABLE.DEBUG_BUG_BUSINESS_STRING}
+    DEBUG_SERVICE_NAME: parking-session-management
+
+  apiGateway:
+    restApiId:
+      "Fn::ImportValue": ${self:provider.stage}-ExtApiGatewayRestApiId
+    restApiRootResourceId:
+      "Fn::ImportValue": ${self:provider.stage}-ExtApiGatewayRestApiRootResourceId
+
+functions:
+  createParkingSession:
+    handler: handlers/createParkingSession.handler
+    events:
+      - http:
+          path: /parkingSession
+          method: POST
+          cors: true
+          private: false
+  updateParkingSession:
+    handler: handlers/updateParkingSession.handler
+    events:
+      - http:
+          path: /parkingSession
+          method: PUT
+          cors: true
+          private: false

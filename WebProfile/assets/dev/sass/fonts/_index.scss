@@ -1,0 +1,73 @@
+@font-face {
+    font-family: icomoon;
+    src: url('/font-asset/icomoon.eot?wivkk8');
+    src: url('/font-asset/icomoon.eot?wivkk8#iefix') format('embedded-opentype'),
+        url('/font-asset/icomoon.ttf?wivkk8') format('truetype'),
+        url('/font-asset/icomoon.woff?wivkk8') format('woff'),
+        url('/font-asset/icomoon.svg?wivkk8#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: sanpro-black;
+    src: url('/font-asset/SansPro-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: sanpro-bold;
+    src: url('/font-asset/SansPro-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: sanpro-extralight;
+    src: url('/font-asset/SansPro-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: sanpro-italic;
+    src: url('/font-asset/SansPro-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: sanpro-light;
+    src: url('/font-asset/SansPro-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: sanpro-regular;
+    src: url('/font-asset/SansPro-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: sanpro-semibold;
+    src: url('/font-asset/SansPro-Semibold.ttf') format('truetype');
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: icomoon !important;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* better font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: unset !important;
+}
+
+html {
+    font-family: sanpro-regular !important;
+    font-size: 18px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+}

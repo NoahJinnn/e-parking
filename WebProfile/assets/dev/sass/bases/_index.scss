@@ -1,0 +1,159 @@
+body,
+html {
+    height: 100%;
+}
+
+body::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px $color-black-opacity;
+    background-color: $color-dark-cyan;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: $color-cyan;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+button:focus {
+    outline: unset !important;
+}
+
+.bases {
+    &__p {
+        &--cursor {
+            cursor: pointer;
+        }
+    }
+    &__p-event {
+        &--none {
+            pointer-events: none;
+        }
+    }
+    &__font {
+        &--10 {
+            font-size: 10px !important;
+            @include responsive(max-sm) {
+                font-size: 8px !important;
+            }
+        }
+        &--12 {
+            font-size: 12px !important;
+            @include responsive(max-sm) {
+                font-size: 10px !important;
+            }
+        }
+        &--14 {
+            font-size: 14px !important;
+            @include responsive(max-sm) {
+                font-size: 12px !important;
+            }
+        }
+        &--16 {
+            font-size: 16px !important;
+            @include responsive(max-sm) {
+                font-size: 14px !important;
+            }
+        }
+        &--18 {
+            font-size: 18px !important;
+            @include responsive(max-sm) {
+                font-size: 16px !important;
+            }
+        }
+        &--20 {
+            font-size: 20px !important;
+            @include responsive(max-sm) {
+                font-size: 18px !important;
+            }
+        }
+        &--22 {
+            font-size: 22px !important;
+            @include responsive(max-sm) {
+                font-size: 20px !important;
+            }
+        }
+        &--24 {
+            font-size: 24px !important;
+            @include responsive(max-sm) {
+                font-size: 22px !important;
+            }
+        }
+        &--2e {
+            font-size: 2em !important;
+            @include responsive(max-sm) {
+                font-size: 1.5em !important;
+            }
+        }
+    }
+    &__active {
+        color: $color-cyan !important;
+    }
+    &__text {
+        &--bold {
+            font-family: sanpro-semibold;
+            font-weight: 600;
+        }
+        &--light {
+            font-family: sanpro-light;
+        }
+    }
+    &__bg {
+        &--light-gray {
+            background: $color-light-gray;
+        }
+    }
+    &__container {
+        max-width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        @include responsive(min-sm) {
+            max-width: 540px;
+        }
+        @include responsive(min-md) {
+            max-width: 720px;
+        }
+        @include responsive(min-lg) {
+            max-width: 960px;
+        }
+        @include responsive(min-xl) {
+            max-width: 1140px;
+        }
+    }
+    &__form {
+        &-group{
+            margin-bottom: 1rem;
+        }
+        &-control{
+            display: block;
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: $color-gray-blue;
+            background-color: $color-white;
+            background-clip: padding-box;
+            border: 1px solid $color-dark-white;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+    }
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.row {
+    margin-left: unset !important;
+    margin-right: unset !important;
+}

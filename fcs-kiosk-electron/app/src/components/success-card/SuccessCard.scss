@@ -1,0 +1,30 @@
+.success-card {
+  position: fixed;
+  width: 50%;
+  top: 10vh;
+  right: 25vw;
+  .icon-bg-1 {
+    width: 174px;
+    height: 174px;
+    padding: 19px 18px 17px 17px;
+    background-color: rgba(64, 140, 255, 0.11);
+    border-radius: 50%;
+  }
+
+  .icon-bg-2 {
+    width: 139px;
+    height: 138px;
+    padding: 41.8px 32.8px 39.3px 36px;
+    background-image: linear-gradient(32deg, #79c6f1 -4%, #0065fc 111%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .succes-icon {
+    width: 70.2px!important;
+    height: 56.9px!important;
+  }
+
+}

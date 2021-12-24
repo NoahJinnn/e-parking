@@ -1,0 +1,22 @@
+{
+  "name": "notes-app-ext-billing",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "standard --env jest && node_modules/.bin/serverless-bundle test",
+    "fix": "standard --fix",
+    "build": "standard --fix --env jest && sls deploy -v",
+    "clean": "sls remove -v"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "serverless-add-api-key": "^4.1.1"
+  }
+}

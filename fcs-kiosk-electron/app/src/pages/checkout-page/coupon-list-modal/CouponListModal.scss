@@ -1,0 +1,25 @@
+.coupons-modal {
+  .coupons-modal__close-corner {
+    &:active #ccc-gross {
+      opacity: 1;
+    }
+    &:active {
+      transform: scale(1.03);
+    }
+  }
+  .virtual-keyboard {
+    width: 100%;
+  }
+  .coupon-search-btn__container,
+  .search-input {
+    height: 3rem;
+    .coupon-search-btn {
+      height: 100%;
+      border-radius: 7px;
+      border: 0;
+      outline: 0;
+      background-color: #369aff;
+      color: #fff;
+    }
+  }
+}

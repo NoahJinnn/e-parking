@@ -1,0 +1,19 @@
+{
+  "name": "parking-session",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard --env jest && node_modules/.bin/serverless-bundle test",
+    "fix": "standard fix",
+    "build": "standard --fix --env jest && sls deploy --aws-profile fcs -v",
+    "clean": "sls remove --aws-profile fcs -v",
+    "deploy": "sls deploy --aws-profile fcs -v"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-bundle": "^3.1.0",
+    "serverless-offline": "^6.8.0"
+  }
+}

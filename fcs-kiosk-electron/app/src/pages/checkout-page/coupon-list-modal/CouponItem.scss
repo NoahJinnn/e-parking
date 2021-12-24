@@ -1,0 +1,36 @@
+.coupon-item {
+  position: relative;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.16);
+  .coupon-item-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .coupon-count {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.8rem;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+  .coupon-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .coupon-subtitle {
+    font-size: 1.2rem;
+    color: #2b2b2b;
+    .coupon-time {
+      color: #ff2424;
+    }
+    .coupon-use {
+      font-weight: 600;
+      color: #1c7cdb;
+      transition: all 300ms ease;
+      &:active {
+        color: #67abff;
+        transform: scale(1.03);
+      }
+    }
+  }
+}

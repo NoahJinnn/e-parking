@@ -1,0 +1,26 @@
+.pages {
+    &__page {
+        &_detail {
+            &_heading {
+                text-transform: uppercase;
+                font-size: 42px;
+                @include responsive(max-sm){
+                    font-size: 32px;
+                }
+            }
+            &_desc {
+                opacity: .6;
+                b {
+                    font-weight: 600;
+                    font-size: 22px;
+                    font-family: sanpro-semibold !important;
+                    opacity: unset !important;
+                    @include responsive(max-sm){
+                        font-size: 20px;
+                    }
+                    margin-bottom: 1.5rem !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { LOCALE } from './type'; // Action set active locale\n\nexport const setLocale = (data = 'en') => {\n  return {\n    type: LOCALE,\n    data\n  };\n};","map":null,"metadata":{},"sourceType":"module"}

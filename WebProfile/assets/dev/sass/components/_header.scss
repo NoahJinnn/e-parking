@@ -1,0 +1,98 @@
+.components {
+    &__header {
+        -webkit-user-select:none;
+        -khtml-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select: none;
+        top: 0;
+        position: fixed;
+        background-color: $color-dark-blue !important;
+        box-shadow: 0px 0px 6px $color-dark-blue;
+        width: 100%;
+        z-index: 999;
+        transition: all .5s ease-in-out;
+        line-height: 0.8;
+        img {
+            transition: all .5s ease-in-out;
+        }
+        &.unsticky {
+            background-color: unset !important;
+            box-shadow: unset !important;
+            .components__header-logo {
+                width: 55px;
+                @include responsive(max-sm) {
+                    width: 45px;
+                }
+            }
+            .components__header-bar {
+                width: 24px;
+            }
+        }
+        &-bar {
+            width: 18px;
+        }
+        &-logo {
+            width: 45px;
+            @include responsive(max-sm) {
+                width: 35px;
+            }
+        }
+        &-menu {
+            transition: all 1s ease-in-out;
+            color: $color-white;
+            &-item {
+                text-transform: capitalize;
+                cursor: pointer;
+                color: $color-white;
+                &:hover {
+                    color: $color-cyan;
+                }
+            }
+            .components__dropdown-menu{
+                top: 5 !important;
+                right: 0 !important;
+                left: auto !important;
+                .components__dropdown-item {
+                    color: $color-gray !important;
+                    &:hover{
+                        color: $color-cyan !important;
+                        background-color: unset !important;
+                    }
+                }
+            }
+            @include responsive(max-lg) {
+                top: 0;
+                right: 0;
+                position: fixed;
+                width: 40%;
+                height: 100%;
+                background-color: $color-dark-blue !important;
+                padding-top: 0;
+                overflow-y: scroll;
+                &-item {
+                    text-align: center;
+                    padding: 1.5rem 0 1.5rem 0;
+                }
+                .components__dropdown-menu{
+                    left: 50% !important;
+                    right: 50% !important;
+                    position: unset !important;
+                    text-align: center !important;
+                    float: unset !important;
+                    margin: .5rem 1rem 1.5rem 1rem !important;
+                }
+            }
+            @include responsive(max-sm) {
+                width: 100%;
+            }
+        }
+        &-language {
+            text-transform: uppercase;
+            @include responsive(max-lg) {
+                text-align: center;
+                padding: 1.5rem 0 0 0;
+            }
+        }
+    }
+}

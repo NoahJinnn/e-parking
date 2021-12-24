@@ -1,0 +1,148 @@
+service:
+  name: authen-service-api
+
+plugins:
+  - serverless-bundle
+  - serverless-pseudo-parameters
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+  - serverless-add-api-key
+  - serverless-offline
+
+custom: ${file(../../serverless.common.yml):custom}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 256
+  region: ap-southeast-1
+  stage: ${opt:stage, 'dev'}
+  iamRoleStatements:
+    - ${file(iam/UserIAM.yml):UserTableIAM}
+    - Effect: Allow
+      Action:
+        - secretsmanager:GetSecretValue
+      Resource: "*"
+  environment:
+    stage: ${self:custom.stage}
+    resourcesStage: ${self:custom.resourcesStage}
+
+  apiGateway:
+    restApiId:
+      "Fn::ImportValue": ${self:provider.stage}-ExtApiGatewayRestApiId
+    restApiRootResourceId:
+      "Fn::ImportValue": ${self:provider.stage}-ExtApiGatewayRestApiRootResourceId
+
+functions:
+  auth:
+    handler: handlers/auth.handler
+    cors: true
+  otpGenerate:
+    handler: handlers/generateOTPCode.handler
+    iamRoleStatementsInherit: true
+    events:
+      - http:
+          path: /otp-generation
+          method: POST
+          cors: true
+          private: true
+  createSocialUser:
+    handler: handlers/social/createSocialUser.handler
+    events:
+      - http:
+          path: /social
+          method: POST
+          cors: true
+  getSocialUser:
+    handler: handlers/social/getSocialUser.handler
+    events:
+      - http:
+          path: /social
+          method: GET
+  updateSocialUser:
+    handler: handlers/social/updateSocialUser.handler
+    events:
+      - http:
+          path: /social
+          method: PUT
+          authorizer: auth
+  createEndUser:
+    handler: handlers/end/createEndUser.handler
+    events:
+      - http:
+          path: /end
+          method: POST
+          cors: true
+  getEndUser:
+    handler: handlers/end/getEndUser.handler
+    events:
+      - http:
+          path: /end
+          method: GET
+  updateEndUser:
+    handler: handlers/end/updateEndUser.handler
+    events:
+      - http:
+          path: /end
+          method: PUT
+          authorizer: auth
+  deleteUser:
+    handler: handlers/deleteUser.handler
+    events:
+      - http:
+          path: /deleteUser/{id}
+          method: DELETE
+          authorizer: auth
+  createPartnerUser:
+    handler: handlers/partner/createPartnerUser.handler
+    events:
+      - http:
+          path: /partner
+          method: POST
+          cors: true
+  getPartnerUser:
+    handler: handlers/partner/getPartnerUser.handler
+    events:
+      - http:
+          path: /partner
+          method: GET
+  updatePartnerUser:
+    handler: handlers/partner/updatePartnerUser.handler
+    events:
+      - http:
+          path: /partner
+          method: PUT
+          authorizer: auth
+  privateEndpoint:
+    handler: handlers/private.handler
+    events:
+      - http:
+          path: private
+          method: POST
+          authorizer: auth
+          cors: true
+# This response is needed for custom authorizer failures cors support ¯\_(ツ)_/¯
+#    GatewayResponse:
+#      Type: 'AWS::ApiGateway::GatewayResponse'
+#     Properties:
+#       ResponseParameters:
+#         gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+#         gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+#        ResponseType: EXPIRED_TOKEN
+#        RestApiId:
+#          Ref: 'ApiGatewayRestApi'
+#        StatusCode: '401'
+#    AuthFailureGatewayResponse:
+#      Type: 'AWS::ApiGateway::GatewayResponse'
+#      Properties:
+#        ResponseParameters:
+#          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+#          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+#        ResponseType: UNAUTHORIZED
+#        RestApiId:
+#          Ref: 'ApiGatewayRestApi'
+#        StatusCode: '401'
+
+# UserTable:
+#   Fn::GetAtt: ${self:provider.stage}-ExtUserTableArn
+#   arn: !GetAtt UserTable.Arn

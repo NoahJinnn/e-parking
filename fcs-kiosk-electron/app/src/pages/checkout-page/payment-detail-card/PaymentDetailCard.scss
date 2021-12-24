@@ -1,0 +1,45 @@
+.payment-details {
+  margin-bottom: 2rem;
+
+  .shadow-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.75);
+    pointer-events: all;
+  }
+
+  .qr-icon__container {
+    background-color: #50bcff;
+    border-radius: 7px;
+    height: 3rem;
+    width: 3rem;
+    border: solid 1px #50bcff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .qr-icon {
+      width: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60%;
+    }
+  }
+  .pay-method--active,
+  .visa-method--active {
+    background-image: linear-gradient(to bottom, #932f6d, #420039);
+    color: white;
+  }
+  .pay-method--active svg {
+    fill: #fff;
+    stroke: #fff;
+  }
+
+  .visa-method--active svg {
+    fill: #fff;
+    stroke: #42003955;
+  }
+}

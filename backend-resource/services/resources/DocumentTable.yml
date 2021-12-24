@@ -1,0 +1,24 @@
+DocumentTable:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: DocumentTable-${self:provider.stage}
+    BillingMode: PAY_PER_REQUEST
+    AttributeDefinitions:
+      - AttributeName: id
+        AttributeType: S
+      - AttributeName: type
+        AttributeType: S
+      - AttributeName: ownerId
+        AttributeType: S
+    KeySchema:
+      - AttributeName: id
+        KeyType: HASH
+    GlobalSecondaryIndexes:
+      - IndexName: TypeAndOwnerID
+        KeySchema:
+          - AttributeName: type
+            KeyType: HASH
+          - AttributeName: ownerId
+            KeyType: RANGE
+        Projection:
+          ProjectionType: ALL

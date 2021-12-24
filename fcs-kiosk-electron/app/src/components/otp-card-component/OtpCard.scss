@@ -1,0 +1,31 @@
+.otp-card {
+  margin: 0 auto;
+  width: 50%;
+  position: relative;
+
+  .virtual-keyboard {
+    width: 20rem !important;
+    margin: 0 auto;
+    font-size: 1.5rem;
+  }
+
+  .otp-loader {
+    position: absolute;
+    width: 50%;
+    right: 25%;
+    bottom: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      font-size: 55px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: #5e94ff;
+    }
+  }
+}

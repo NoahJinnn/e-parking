@@ -1,0 +1,26 @@
+.phone-card-container {
+  .phone-number-card {
+    position: relative;
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .phone-input {
+      background-color: #fffa !important;
+      border-color: #1c3f4a55 !important;
+      width: 23rem !important;
+      height: 3rem !important;
+      font-size: 2.2rem !important;
+    }
+    .phone-input__container {
+      width: unset;
+    }
+  }
+  .virtual-keyboard {
+    width: 20rem !important;
+    margin: 0 auto;
+    font-size: 1.5rem;
+  }
+}

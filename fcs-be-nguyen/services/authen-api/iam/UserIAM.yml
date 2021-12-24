@@ -1,0 +1,17 @@
+UserTableIAM:
+  Effect: Allow
+  Action:
+    - dynamodb:PutItem
+    - dynamodb:Scan
+    - dynamodb:GetItem
+    - dynamodb:UpdateItem
+    - dynamodb:Query
+  Resource:
+    - 'Fn::ImportValue': ${self:provider.stage}-UserTableArn
+    - Fn::Join:
+      - '/'
+      -
+        - 'Fn::ImportValue': ${self:provider.stage}-UserTableArn
+        - 'index'
+        - '*'
+    # >>     - ${self:custom.AuctionsTable.arn}/index/statusAndEndDate

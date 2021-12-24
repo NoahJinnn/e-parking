@@ -1,0 +1,17 @@
+{
+    "company": {
+        "code": "Mã DN",
+        "hotline": "Đường dây nóng",
+        "address": "Địa chỉ",
+        "addressline": "Toà nhà NSSC, Lầu 8, Số 1196 Đường 3 Tháng 2, Phường 8, Quận 11, Thành Phố Hồ Chí Minh, Việt Nam."
+    },
+    "contact": {
+        "info": "Liên Hệ Với Chúng Tôi",
+        "name": "Tên",
+        "mail": "Mail của bạn",
+        "message": "Tin nhắn",
+        "send": "Gửi"
+    },
+    "copy": "Bản quyền",
+    "right": "Đã Đăng Ký"
+}

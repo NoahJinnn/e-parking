@@ -1,0 +1,11 @@
+{
+  "name": "document-services",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "../../node_modules/.bin/serverless-bundle test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}

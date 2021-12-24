@@ -1,0 +1,429 @@
+.pages {
+    &__home {
+        .description {
+            text-align: left;
+            opacity: .6 !important;
+            &-title {
+                text-align: left;
+                text-transform: uppercase;
+            }
+        }
+        &-section {
+            margin-top: 95px;
+            @include responsive(max-lg) {
+                margin-top: 50px;
+            }
+            &-heading {
+                font-size: 52px;
+                text-transform: uppercase;
+                text-align: center;
+                img {
+                    width: 120px !important;
+                    height: 30px !important;
+                    margin-bottom: 10px;
+                }
+                @include responsive(max-sm) {
+                    font-size: 42px !important;
+                }
+            }
+            &-semiheading {
+                font-size: 42px;
+                @include responsive(max-sm) {
+                    font-size: 32px !important;
+                }
+            }
+        }
+        &-banner{
+            &-bg {
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 560px;
+                z-index: 0;
+                @include responsive(max-xl){
+                    height: 513px;
+                }
+                @include responsive(max-lg){
+                    display: none;
+                }
+            }
+            &-logo {
+                width: 350px;
+                @include responsive(max-sm) {
+                    width: 250px;
+                }
+            }
+            &-content {
+                padding-left: unset !important;
+                z-index: 2;
+                @include responsive(max-lg) {
+                    padding-right: unset !important;
+                }
+            }
+            &-img {
+                padding-right: unset !important;
+                z-index: 2;
+                @include responsive(max-lg) {
+                    padding-left: unset !important;
+                }
+                img {
+                    width: 100%;
+                    @include responsive(max-lg) {
+                        margin-top: 2rem !important;
+                    }
+                }
+            }
+        }
+        &-overview {
+            &-img {
+                border: 10px solid $color-cyan;
+                border-radius: 10px;
+                height: 400px;
+                padding-left: unset !important;
+                padding-right: unset !important;
+                @include responsive(max-lg) {
+                    order: 2;
+                    margin-top: 1.5rem;
+                }
+                @include responsive(max-lg) {
+                    height: 380px !important;
+                }
+                @include responsive(max-md) {
+                    height: 320px !important;
+                }
+                @include responsive(max-sm) {
+                    height: 260px !important;
+                }
+                @include responsive(max-xs) {
+                    height: 200px !important;
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            &-content {
+                position: relative;
+                padding-right: unset !important;
+                @include responsive(max-lg) {
+                    padding-left: unset !important;
+                }
+            }
+            &-features {
+                bottom: 0;
+                position: absolute;
+                @include responsive(max-lg) {
+                    margin-top: 1.5rem;
+                    position: unset;
+                }
+                &_icon {
+                    margin-left: -10px;
+                    @include responsive(max-sm) {
+                        margin-left: -5px;
+                    }
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        @include responsive(max-sm) {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+        &-works {
+            height: 100%;
+            border-top: solid 1px $color-light-cyan;
+            background: linear-gradient(to top, $color-white-opacity, $color-gray-opacity);
+            position: relative;
+            margin-bottom: 5rem !important;
+            color: $color-light-cyan;
+            @include responsive(max-lg) {
+                margin-bottom: 2.5rem !important;
+            }
+            &:before {
+                left: 0;
+            }
+            &:after {
+                right: 0;
+            }
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                z-index: 1;
+                width: 1px;
+                height: 50%;
+                background: $color-light-cyan;
+            }
+            &-heading {
+                font-size: 42px;
+                top: 0;
+                text-transform: uppercase;
+                @include responsive(max-sm) {
+                    font-size: 32px !important;
+                }
+            }
+            &-tooltip {
+                position: relative;
+                &:hover &_bubble {
+                    visibility: visible;
+                }
+                &_bubble {
+                    visibility: hidden;
+                    z-index: 10;
+                    position: absolute;
+                    top: -120px;
+                    right: -60px;
+                    @include responsive(max-lg) {
+                        left: -120px;
+                    }
+                }
+                &_content {
+                    font-size: 16px;
+                    position: relative;
+                    width: 300px;
+                    height: 100px;
+                    padding: 70px 30px;
+                    margin: 1em auto 80px;
+                    color: $color-white;
+                    background-color: $color-dark-green;
+                    border: 5px solid;
+                    border-color: $color-light-cyan !important;
+                    border-radius: 100px;
+                    @include responsive(max-lg) {
+                        font-size: 14px !important;
+                        width: 250px;
+                        height: 150px;
+                        padding: 85px 25px;
+                    }
+                    @include responsive(max-xs) {
+                        font-size: 12px !important;
+                        width: 200px;
+                    }
+                    &:before, &:after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        background-color: $color-dark-green;
+                        border-color: $color-light-cyan !important;
+                        border-radius: 50%;
+                    }
+                    &:before {
+                        bottom: -55px;
+                        right: 80px;
+                        width: 35px;
+                        height: 35px;
+                        border: 4px solid;
+                        @include responsive(max-lg) {
+                            left: 50px;
+                        }
+                    }
+                    &:after {
+                        bottom: -75px;
+                        right: 120px;
+                        width: 20px;
+                        height: 20px;
+                        border: 3px solid;
+                        @include responsive(max-lg) {
+                            left: 90px;
+                        }
+                    }
+                }
+            }
+            &-content {
+                &_step {
+                    font-size: 37px;
+                    @include responsive(max-sm) {
+                        font-size: 27px !important;
+                    }
+                }
+                &_icon {
+                    width: 220px;
+                    height: 140px;
+                    object-fit: contain;
+                    @include responsive(max-sm) {
+                        width: 175px;
+                        height: 120px;
+                    }
+                }
+                &_title {
+                    color: $color-light-cyan;
+                }
+            }
+            &-dot {
+                &:before {
+                    left: 0;
+                    margin-left: -7px;
+                }
+                &:after {
+                    right: 0;
+                    margin-right: -7px;
+                }
+                &:before, &:after {
+                    content: '';
+                    top: 50%;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background: linear-gradient(to bottom, $color-light-cyan, $color-cyan);
+                    position: absolute;
+                }
+            }
+        }
+        &-products {
+            &-slider {
+                line-height: 0;
+                img {
+                    background-color: $color-black;
+                    object-fit: contain;
+                    width: 100%;
+                    height: 620px;
+                    @include responsive(lg) {
+                        height: 520px;
+                    }
+                    @include responsive(md) {
+                        height: 520px;
+                    }
+                    @include responsive(max-sm) {
+                        height: 420px;
+                    }
+                    @include responsive(max-xs) {
+                        height: 320px;
+                    }
+                }
+                &-desc {
+                    line-height: 1.5;
+                    width: 100%;
+                    margin-top: -10px;
+                    bottom: 0;
+                    position: absolute;
+                    z-index: 10;
+                    background-color: $color-cyan-opacity;
+                    color: $color-white !important;
+                    text-align: center;
+                }
+            }
+        }
+        &-roadmap {
+            &-dot {
+                position: absolute;
+                align-items: center;
+                justify-content: center;
+                &.active {
+                    width: 40px;
+                    height: 40px;
+                    border: 2px solid $color-light-cyan;
+                    border-radius: 50%;
+                }
+                &-status {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    &.inactive {
+                        background: linear-gradient(to right, $color-dark-purple, $color-dark-purple);
+                    }
+                    &.active {
+                        position: absolute;
+                        background: linear-gradient(to right, $color-blue, $color-cyan) !important;
+                    }
+                    &.pass {
+                        background: linear-gradient(to right, color-purple, $color-pink) !important;
+                    }
+                }
+            }
+            &-timeline {
+                margin: 2.3rem 0 .7rem 0 !important;
+                width: 2px;
+                height: 200px;
+                display: block;
+                background-color: $color-light-gray;
+                &.active {
+                    margin-top: 2.8rem !important;
+                }
+                @include responsive(max-sm) {
+                    height: 300px;
+                }
+                @include responsive(max-xs) {
+                    height: 350px;
+                }
+            }
+            
+            &-time {
+                color: $color-pink;
+            }
+            &-milestone {
+                font-size: 27px;
+                @include responsive(max-sm) {
+                    font-size: 20px;
+                }
+            }
+        }
+        &-team {
+            &-member {
+                text-align: center;
+                .w-50-m {
+                    @include responsive(max-md) {
+                        width: 100%;
+                    }
+                }
+                &_avatar {
+                    width: 200px;
+                    height: 200px;
+                    border: 8px solid $color-white;
+                    border-radius: 50%;
+                    text-align: center;
+                    overflow: hidden !important;
+                    -webkit-mask-image: -webkit-radial-gradient($color-white, $color-black);
+                    -webkit-backface-visibility: hidden;
+                    -moz-backface-visibility: hidden;
+                    @include responsive(max-lg){
+                        width: 180px;
+                        height: 180px;
+                    }
+                    img {
+                        transition: transform .3s, visibility .3s ease-in-out;
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+                &_name {
+                    text-transform: capitalize;
+                    font-size: 27px;
+                    @include responsive(max-sm) {
+                        font-size: 22px !important;
+                    }
+                }
+                &_position {
+                    text-transform: capitalize;
+                }
+                &_more {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $color-pink;
+                    .rotate_down {
+                        transform: rotate(0deg);
+                        transition: .5s linear;
+                    }
+                    .rotate_up {
+                        transform: rotate(180deg);
+                        transition: .5s linear;
+                    }
+                }
+                .description{
+                    text-align: center !important;
+                }
+            }
+        }
+    }
+}

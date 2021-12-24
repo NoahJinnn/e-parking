@@ -1,0 +1,31 @@
+.bg-prime {
+    background-color: $color-prime;
+}
+.prime {
+    color: $color-prime;
+}
+.br-pill {
+    border-radius: 9999px !important;
+}
+@include breakpoint(ns) {
+    .br-pill-ns {
+        border-radius: 9999px !important;
+    }
+}
+
+@include breakpoint(m) {
+    .br-pill-m {
+        border-radius: 9999px !important;
+    }
+}
+.MuiFormLabel-root.Mui-focused {
+    color: $color-prime !important;
+}
+// .MuiInputBase-input{
+//     min-height: 3.5rem;
+// }
+@include breakpoint(l) {
+    .br-pill-l {
+        border-radius: 9999px !important;
+    }
+}

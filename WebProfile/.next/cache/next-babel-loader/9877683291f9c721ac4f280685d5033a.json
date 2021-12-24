@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { combineReducers } from 'redux';\nimport localeReducer from './locale';\nconst rootReducers = combineReducers({\n  locale: localeReducer\n});\nexport default rootReducers;","map":null,"metadata":{},"sourceType":"module"}

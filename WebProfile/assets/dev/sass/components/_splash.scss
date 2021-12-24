@@ -1,0 +1,32 @@
+.components {
+    &__splash {
+        min-height: 100vh;
+        &-text {
+            display: flex;
+            -webkit-box-reflect: below -12px linear-gradient(transparent, $color-black-low-opacity);
+            span {
+                margin-left: .5rem !important;
+                margin-right: .5rem !important;
+                animation: loading 1s ease-in-out infinite;
+                animation-delay: calc(0.1s * var(--timing));
+            }
+        }
+        &-logo {
+            width: 90px;
+            @include responsive(max-sm) {
+                display: none;
+            }
+        }
+    }
+}
+@keyframes loading {
+    0% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+    40%, 100% {
+        transform: translateY(0px);
+    }
+}

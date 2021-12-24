@@ -1,0 +1,130 @@
+.components {
+    &__footer {
+        background-color: $color-dark-cyan;
+        bottom: 0 !important;
+        width: 100%;
+        z-index: 1;
+        .w-50-ns {
+            @include responsive(max-md) {
+                width: 100%;
+            }
+        }
+        a {
+            color: $color-white !important;
+        }
+        &-info {
+            @include responsive(max-md) {
+                text-align: center;
+            }
+            &_logo{
+                width: 55px;
+                @include responsive(max-sm) {
+                    width: 45px;
+                }
+            }
+            &_data {
+                opacity: .6;
+                font-size: 14px;
+                @include responsive(max-sm) {
+                    font-size: 13px !important;
+                }
+            }
+            &_license {
+                width: 180px;
+                @include responsive(max-md) {
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+        &-contact {
+            &_heading {
+                text-transform: capitalize;
+                @include responsive(max-md) {
+                    text-align: center;
+                }
+            }
+            &_button {
+                background-color: $color-cyan !important;
+                color: $color-white !important;
+                text-transform: uppercase;
+                padding-left: 3rem;
+                padding-right: 3rem;
+                &:focus {
+                    border-color: $color-light-cyan !important;
+                    box-shadow: unset !important;
+                }
+                @include responsive(max-md) {
+                    font-size: 16px !important;
+                    width: 100%;
+                }
+            }
+            .bases__form-control {
+                border: unset !important;
+                background-color: $color-gray !important;
+                font-size: 14px;
+                color: $color-white !important;
+                outline: none;
+                opacity: .6 !important;
+                @include responsive(max-sm) {
+                    font-size: 13px !important;
+                }
+                &:focus {
+                    border: 1px solid $color-light-cyan !important;
+                    box-shadow: unset !important;
+                }
+                &::placeholder {
+                    font-size: 14px;
+                    color: $color-white !important;
+                    opacity: .6 !important;
+                    @include responsive(max-sm) {
+                        font-size: 13px !important;
+                    }
+                }
+                &:-ms-input-placeholder {
+                    font-size: 14px;
+                    color: $color-white !important;
+                    opacity: .6 !important;
+                    @include responsive(max-sm) {
+                        font-size: 13px !important;
+                    }
+                }
+                &::-ms-input-placeholder {
+                    font-size: 14px;
+                    color: $color-white !important;
+                    opacity: .6 !important;
+                    @include responsive(max-sm) {
+                        font-size: 13px !important;
+                    }
+                }
+            }
+            textarea {
+                height: 100px;
+            }
+        }
+        &-copyright {
+            opacity: .6;
+            border-top: 2px solid $color-white-opacity;
+            a {
+                &:hover {
+                    color: $color-cyan !important;
+                }
+            }
+            &_content {
+                @include responsive(max-lg) {
+                    order: 3;
+                }
+            }
+            &_company {
+                color: $color-cyan !important;
+            }
+            &_social {
+                @include responsive(max-lg) {
+                    margin: 1rem 0 1rem 0;
+                }
+            }
+            @include responsive(max-lg) {
+                text-align: center;
+            }
+        }
+    }
+}

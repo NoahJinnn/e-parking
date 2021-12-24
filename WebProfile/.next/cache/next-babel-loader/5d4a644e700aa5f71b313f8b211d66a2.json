@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var LOCALE = 'locale';","map":{"version":3,"sources":["/home/nguyen/workspace/projects/eparking/WebProfile/redux/actions/type.ts"],"names":["LOCALE"],"mappings":"AAAA,OAAO,IAAMA,MAAM,GAAG,QAAf","sourcesContent":["export const LOCALE = 'locale';\n"]},"metadata":{},"sourceType":"module"}

@@ -1,0 +1,16 @@
+.car-status-card {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  padding: 2%;
+  font-size: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .status-checkbox {
+    width: 58px;
+    height: 58px;
+  }
+}

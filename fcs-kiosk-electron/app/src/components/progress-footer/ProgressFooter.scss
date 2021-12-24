@@ -1,0 +1,31 @@
+.progress-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 15vh;
+  padding-right: 3.5rem;
+  .progress-footer__tick-icon {
+    font-size: 10px;
+    stroke-width: 20;
+  }
+
+  .horizontal-line {
+    position: absolute;
+    top: 1.5rem;
+    left: 29%;
+    border-bottom-width: 2px;
+    max-width: 68%;
+    border-color: #707070;
+  }
+  .horizontal-line--loaded {
+    position: absolute;
+    top: 1.5rem;
+    left: 29%;
+    border-bottom-width: 2px;
+    border-color: #557cff;
+    transition: all 0.3s ease-in-out;
+  }
+  .indicator-point--blur {
+    opacity: 0.67;
+  }
+}

@@ -1,0 +1,23 @@
+.base-input {
+  background-color: unset;
+  flex-grow: 1;
+  max-width: 100%;
+  width: 40%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden !important;
+  display: inline-block;
+  font-size: 1.3rem;
+}
+.clear-all-input {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  top: 0;
+  right: 0;
+  margin-right: 0.75rem;
+  align-items: center;
+  :active path {
+    fill: #ff6759;
+  }
+}
